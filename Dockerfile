@@ -2,8 +2,7 @@ FROM alpine:edge
 
 MAINTAINER Daniel Langemann <daniel.langemann@gmx.de>
 
-RUN apk add --no-cache \
-    php7-fpm \
+RUN apk add --no-cache php7-fpm \
     nginx \
     supervisor
 
