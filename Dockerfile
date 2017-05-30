@@ -32,7 +32,8 @@ RUN apk add --no-cache \
     php7-xsl \
     php7-zip \
     php7-zlib \
-    supervisor
+    supervisor \
+    curl
 
 # Add composer
 RUN curl https://getcomposer.org/composer.phar > /usr/local/bin/composer && chmod +x /usr/local/bin/composer
