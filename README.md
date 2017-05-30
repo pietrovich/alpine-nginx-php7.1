@@ -38,3 +38,6 @@ Your Dockerfile could look like this.
     COPY ./var /var
 ```
 You can find the packages for alpine at [pkgs.alpinelinux.org](https://pkgs.alpinelinux.org/packages?name=php7*&branch=&repo=&arch=&maintainer=).
+
+##### License #####
+The MIT License (MIT)
