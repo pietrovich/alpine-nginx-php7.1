@@ -87,7 +87,7 @@ Composer version 1.5-dev (27b8209990abae71433e71363cc459b02e21bfc4) 2017-06-19 1
 
 ## Extending
 
-I you need more packages just extend this container and install all the packages you require.
+If you need more packages just extend this container and install all the packages you require.
 
 Your Dockerfile could look like this. 
 
