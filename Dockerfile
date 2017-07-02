@@ -38,13 +38,10 @@ RUN apk add --no-cache \
 # Add composer
 RUN curl https://getcomposer.org/composer.phar > /usr/local/bin/composer && chmod +x /usr/local/bin/composer
 
-
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-
-
 # Copy configuration
 COPY etc/ /etc
+
+RUN chmod +x /etc/docker-entrypoint.sh
 
 # Copy project files to nginx webroot
 COPY var/www /var/www
