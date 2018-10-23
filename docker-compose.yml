@@ -1,4 +1,11 @@
-server:
-    build: ./
-    ports:
-      - 80:80
+version: '3'
+
+services:
+    web:
+        image:          mesa/alpine-nginx-php7:${CONTAINER_VERSION}
+        container_name: mesa-nginx
+        build: ./
+        ports:
+            - "80:80"
+        volumes:
+            - ./var/www:/var/www

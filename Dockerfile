@@ -11,6 +11,7 @@ RUN apk add --no-cache \
     php7-fpm \
     php7-gd \
     php7-iconv \
+    php7-cli \
     php7-intl \
     php7-json \
     php7-mbstring \
@@ -35,13 +36,15 @@ RUN apk add --no-cache \
     supervisor \
     curl
 
-# Add composer
-RUN curl https://getcomposer.org/composer.phar > /usr/local/bin/composer && chmod +x /usr/local/bin/composer
-
 # Copy configuration
 COPY etc/ /etc
 
 RUN chmod +x /etc/docker-entrypoint.sh
+
+COPY install_composer.sh /etc/install_composer.sh
+RUN chmod +x /etc/install_composer.sh ; \
+    ./etc/install_composer.sh && \
+    mv /usr/local/bin/composer.phar /usr/local/bin/composer
 
 # Copy project files to nginx webroot
 COPY var/www /var/www

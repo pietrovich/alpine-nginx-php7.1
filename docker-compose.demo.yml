@@ -1,6 +1,0 @@
-web:
-    image: mesa/alpine-nginx-php7:latest
-    ports:
-      - 80
-    volumes:
-        - ./var/www:/var/www
