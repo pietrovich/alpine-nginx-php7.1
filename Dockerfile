@@ -1,6 +1,6 @@
-FROM alpine:edge
+FROM alpine:3.6
 
-MAINTAINER Daniel Langemann <daniel.langemann@gmx.de>
+MAINTAINER pietrovich
 
 RUN apk add --no-cache \
     nginx \
@@ -28,12 +28,14 @@ RUN apk add --no-cache \
     php7-simplexml \
     php7-soap \
     php7-tokenizer \
+    php7-xdebug \
     php7-xml \
     php7-xmlreader \
     php7-xsl \
     php7-zip \
     php7-zlib \
     supervisor \
+    mc \
     curl
 
 # Copy configuration
@@ -41,10 +43,8 @@ COPY etc/ /etc
 
 RUN chmod +x /etc/docker-entrypoint.sh
 
-COPY install_composer.sh /etc/install_composer.sh
-RUN chmod +x /etc/install_composer.sh ; \
-    ./etc/install_composer.sh && \
-    mv /usr/local/bin/composer.phar /usr/local/bin/composer
+ADD https://getcomposer.org/composer.phar /usr/bin/composer
+RUN chmod 775 /usr/bin/composer
 
 # Copy project files to nginx webroot
 COPY var/www /var/www

@@ -2,8 +2,8 @@ version: '3'
 
 services:
     web:
-        image:          mesa/alpine-nginx-php7:${CONTAINER_VERSION}
-        container_name: mesa-nginx
+        image:          pietrovich/alpine-nginx-php7.1:${CONTAINER_VERSION}
+        container_name: apps
         build: ./
         ports:
             - "80:80"
